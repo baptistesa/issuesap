@@ -1,0 +1,131 @@
+* {
+    font-family: 'Courier New', monospace;
+}
+
+.mainbox {
+    margin-top: 10px;
+    padding-bottom: 2px;
+    border-radius: 5px;
+    background-color: #F2F2F2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.labelmainbox {
+    background-color: #929292;
+    color: #FFFF;
+    font-size: 1em;
+    line-height: 1em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 3px 5px 2px 4px;
+    font-weight: bold;
+}
+
+.descriptionbox {
+    color: #a0a0a0;
+    font-size: 0.80em;
+    width: 100%;
+    padding: 3px 5px 2px 4px;
+}
+
+.successDescription {
+    color: #5153eb;
+}
+
+
+.testbox {
+    width: 100%;
+    border-top: 1px dashed #dadada;
+    margin-top: 5px;
+    padding-top: 3px;
+    margin-bottom: 3px;
+    min-height: 1em;
+}
+
+.CSPbox {
+    color:#c56a81;
+}
+
+.whateverbox {
+    background-color: #ffffff;
+    border-radius : 3px;
+    font-size: 1.3em;
+    padding: 2px 10px 2px 10px;
+    margin: 4px;
+    text-align: center;
+    border-width: thin;
+    border-style:dashed;
+    border-color: #929292;
+}
+
+.inlinebox {
+    display: inline-block;
+}
+
+.hiddenbox {
+    display: none!important;
+}
+
+
+
+
+.scrollable {
+    height: 100px;
+    overflow: scroll;
+}
+  
+.scrollableContent {
+    height: 800px;
+    background-color: rgb(255, 255, 255);
+}
+
+.fail.mainbox {
+    box-shadow: 0 1px 3px rgba(197,106,129,0.12), 0 1px 2px rgba(197, 106, 129,0.24);
+}
+
+.fail .labelmainbox {
+    background-color: rgb(197, 106, 129)!important;
+}
+
+.uncertain.mainbox {
+    box-shadow: 0 1px 3px rgba(235, 159, 71, 0.062), 0 1px 2px rgba(235, 159, 71, 0.164);
+}
+
+.uncertain .labelmainbox {
+    background-color: rgb(239 179 95)!important;
+}
+
+.success.mainbox {
+    
+}
+
+.success .labelmainbox {
+    background-color: rgb(106, 197, 172)!important;
+}
+
+
+.button {
+    background-color: #84a4d4;
+    border: none;
+    border-radius : 3px;
+    font-size: 1.3em;
+    color: #FFFFFF;
+    padding: 2px 10px 2px 10px;
+    margin: 4px;
+    text-align: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button:hover {background-color: #a0bde9}
+.button:active {
+    transform: translateY(4px);
+    background-color: #3bd43b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+
+#changeStyle {
+    background-color: rgb(197, 106, 129);
+    height: 1em;
+}

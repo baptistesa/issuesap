@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- vvvvvvvvvvvvvvv CSP vvvvvvvvvvvvvvv -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://img.nopcommerce.com; object-src 'none'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
+    <!-- ^^^^^^^^^^^^^^^ CSP ^^^^^^^^^^^^^^^ -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>TestManifestV3</title>
+</head>
+<body>
+
+  <!--## TEMPLATE ###################################################-->
+  <div class="mainbox hiddenbox" id="templateBox">
+    <div class="labelmainbox">TEMPLATE</div>
+    <div class="descriptionbox">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit <br>
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam <br>
+      <span class="successDescription">Success when</span> quis nostrud exercitation ullamco laboris
+    </div>
+    <div class="testbox">
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## CSP CHECK ##############################################-->
+  <div class="mainbox" id="CSPCheckBox">
+    <div class="labelmainbox">CSP CHECK ON SCRIPT-SCR / INLINE CODE</div>
+    <div class="descriptionbox">
+      Check on script-scr  <br>
+      Inline click on function. script-src CSP should prevent it <br>
+      <span class="successDescription">No real success or Fail. just a check on the CSP.</span><br>
+      <span class="successDescription">Success when</span> testbox value is successValue (DONE)
+    </div>
+    <div class="testbox">
+      <div id="inlineClick" class="button inlinebox" onclick="cspNOTBreached(event)">CLICK</div>
+      <div id="CSPCheck"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## PAGE RECOGNITION ###################################################-->
+  <div class="mainbox" id="pageRecognitionBox">
+    <div class="labelmainbox">PAGE RECOGNITION</div>
+    <div class="descriptionbox">
+      Check page recognition <br>
+      <span class="successDescription">Success when</span> page has been recongized
+    </div>
+    <div class="testbox">
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## ITEM RECOGNITION ###################################################-->
+  <div class="mainbox" id="itemRecognitionBox">
+    <div class="labelmainbox">ITEM RECOGNITION</div>
+    <div class="descriptionbox">
+      Check item recognition <br>
+      <span class="successDescription">Success when</span> item itemToBeRecognized has been recognized
+    </div>
+    <div class="testbox">
+      <div id="itemToBeRecognized" class="whateverbox">Recognize me</div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## ITEM EXIST ###################################################-->
+  <div class="mainbox" id="itemExistBox">
+    <div class="labelmainbox">ITEM EXIST</div>
+    <div class="descriptionbox">
+      Check item recognition <br>
+      <span class="successDescription">Success when</span> item itemExist has been recognized
+    </div>
+    <div class="testbox">
+      <div id="itemExist" class="whateverbox">Do I exist?</div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## WAIT FOR ITEM ###################################################-->
+  <div class="mainbox" id="waitItemBox">
+    <div class="labelmainbox">WAIT FOR ITEM</div>
+    <div class="descriptionbox">
+      Wait for an item <br>
+      Item is added as child of testbox when button is clicked and after 1 second <br>
+      <span class="successDescription">Success when</span> item waitItem has been recognized
+    </div>
+    <div class="testbox">
+      <button type="button" class="button inlinebox" id="appendNextToHere">CLICK</button>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET ITEM ###################################################-->
+  <div class="mainbox" id="getItemBox">
+    <div class="labelmainbox">GET ITEM</div>
+    <div class="descriptionbox">
+      Get Item value<br>
+      <span class="successDescription">Success when</span> item getItem value = DONE
+    </div>
+    <div class="testbox">
+        <div id="getItem" class="whateverbox">DONE</div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SET ITEM ###################################################-->
+  <div class="mainbox" id="setItemBox">
+    <div class="labelmainbox">SET ITEM</div>
+    <div class="descriptionbox">
+      Change the textContent of an item using set element<br>
+      <span class="successDescription">Success when</span> item setItem value = DONE
+    </div>
+    <div class="testbox">
+      <div id="setItem" class="whateverbox">Set "DONE" here</div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT OBJECT USING ID AS REFERENCE ###################################################-->
+  <div class="mainbox" id="insertObjectUsingIdBox">
+    <div class="labelmainbox">INSERT OBJECT USING ID</div>
+    <div class="descriptionbox">
+      Insert an item and then wait for it <br>
+      Insert element objectInsertedWithId next to insertItem1 using id as parameter <br>
+      <span class="successDescription">Success when</span> item objectInsertedWithId has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertObject1">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <div id="objectInsertedWithId" class="whateverbox inlinebox">DONE</div> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT OBJECT USING OBJECT AS REFERENCE ###################################################-->
+  <div class="mainbox" id="insertObjectUsingObjectBox">
+    <div class="labelmainbox">INSERT OBJECT USING OBJECT</div>
+    <div class="descriptionbox">
+      Insert an item and then wait for it <br>
+      Insert element objectInsertedWithObj next to insertObject2 using object as parameter <br>
+      <span class="successDescription">Success when</span> item objectInsertedWithObj has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertObject2">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <div id="objectInsertedWithObj" class="whateverbox inlinebox">DONE</div> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT BUTTON USING ID AS REFERENCE ###################################################-->
+  <div class="mainbox" id="insertButtonUsingIdBox">
+    <div class="labelmainbox">INSERT BUTTON USING ID</div>
+    <div class="descriptionbox">
+      Insert an item and then wait for it <br>
+      Insert element buttonInsertedWithId next to insertButton1 using id as parameter <br>
+      <span class="successDescription">Success when</span> item buttonInsertedWithId has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertButton1">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <button id="buttonInsertedWithId" class="button inlinebox">DONE</button> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button><button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT BUTTON USING OBJECT AS REFERENCE ###################################################-->
+  <div class="mainbox" id="insertButtonUsingObjectBox">
+    <div class="labelmainbox">INSERT BUTTON USING OBJECT</div>
+    <div class="descriptionbox">
+      Insert an item and then wait for it <br>
+      Insert element buttonInsertedWithObj next to insertButton2 using object as parameter <br>
+      <span class="successDescription">Success when</span> item buttonInsertedWithObj has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertButton2">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <button id="buttonInsertedWithObj" class="button inlinebox">DONE</button> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT HTML CODE ###################################################-->
+  <div class="mainbox" id="insertHTMLCodeUsingIdBox">
+    <div class="labelmainbox">INSERT HTML CODE USING ID</div>
+    <div class="descriptionbox">
+      Insert an item and then wait for it <br>
+      Insert element HtmlInsertedWithID next to insertHtml1 using id as parameter <br>
+      <span class="successDescription">Success when</span> item HtmlInsertedWithID has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertHtml1">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <div id="HtmlInsertedWithID" class="whateverbox inlinebox">DONE</div> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## INSERT LINK ###################################################-->
+  <div class="mainbox" id="insertLinkBox">
+    <div class="labelmainbox">INSERT LINK USING ID</div>
+    <div class="descriptionbox">
+      Insert a link and then wait for it <br>
+      Insert link linkInsertWithId next to insertLink using id as parameter <br>
+      <span class="successDescription">Success when</span> link linkInsertWithId has been recognized
+    </div>
+    <div class="testbox">
+      <div class="inlinebox" id="insertLink">INSERT NEXT TO ME</div>
+      <!---->
+      <!-- <a id="linkInsertWithId" href="https://www.sap.com/">SAP</a> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SELECT ###################################################-->
+  <div class="mainbox" id="selectBox">
+    <div class="labelmainbox">SELECT</div>
+    <div class="descriptionbox">
+      Select an element from a dropdown <br>
+      <span class="successDescription">Success when</span> value of selectID select is DONE
+    </div>
+    <div class="testbox">
+      <select name="elementSelect" id="selectID">
+        <option value="notme">notme</option>
+        <option value="notme2">notme2</option>
+        <option value="DONE">DONE</option>
+        <option value="notme3">notme3</option>
+      </select>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SCROLL WITHIN AN ELEMENT ###################################################-->
+  <div class="mainbox" id="scrollBox">
+    <div class="labelmainbox">SCROLL ON ITEM</div>
+    <div class="descriptionbox">
+      Scroll inside a div <br>
+      <span class="successDescription">Success when</span> scrollTop Value of the scrollID div is > 0 (or = to scrolled offset if possible)
+    </div>
+    <div class="testbox">
+      <div class="scrollable" id="scrollID">
+        <div class="scrollableContent">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>DONE<br><br><br><br><br><br><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SCROLL WITHIN FUL WINDOW ###################################################-->
+  <div class="mainbox" id="scrollWindowBox">
+    <div class="labelmainbox">SCROLL ON WINDOW</div>
+    <div class="descriptionbox">
+      Scroll inside a div <br>
+      <span class="successDescription">Success when</span> scrollTop Value of the Window is > 0 (or = to scrolled offset if possible)
+    </div>
+    <div class="testbox">
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET ATTRIBUTE ID ###################################################-->
+  <div class="mainbox" id="getAttributeIDBox">
+    <div class="labelmainbox">GET ATTRIBUTE ID</div>
+    <div class="descriptionbox">
+      Get ID attribute of a div <br>
+      <span class="successDescription">Success when</span> id attribute of getAttributeIdID item = getAttributeIdID
+    </div>
+    <div class="testbox">
+      <div id="getAttributeIdID" class="whateverbox">
+        Get My ID
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SET ATTRIBUTE ID ###################################################-->
+  <div class="mainbox" id="setAttributeIDBox">
+    <div class="labelmainbox">SET ATTRIBUTE ID</div>
+    <div class="descriptionbox">
+      Set ID attribute of a div if not already set <br>
+      <span class="successDescription">Success when</span> id attribute of Child div element of setMyChildAnId item = setAttributeId
+    </div>
+    <div class="testbox">
+      <div id="setMyChildAnId" class="whateverbox">
+        <div>Give Me an ID attribute</div>
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## CHANGE ATTRIBUTE ID ###################################################-->
+  <div class="mainbox" id="changeAttributeIDBox">
+    <div class="labelmainbox">CHANGE ATTRIBUTE ID</div>
+    <div class="descriptionbox">
+      Change ID attribute of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> id attribute of changeAttributeId item = changedId
+    </div>
+    <div class="testbox">
+      <div id="changeAttributeId" class="whateverbox">
+        Change my ID attribute
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET ATTRIBUTE CLASS ###################################################-->
+  <div class="mainbox" id="getAttributeClassBox">
+    <div class="labelmainbox">GET ATTRIBUTE CLASS</div>
+    <div class="descriptionbox">
+      Get class attribute of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> class attribute of getAttributeClassID item = getAttributeClass
+    </div>
+    <div class="testbox">
+      <div id="getAttributeClassID" class="getAttributeClass whateverbox">
+        Get my class attribute
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SET CLASS IN ATTRIBUTE CLASS ###################################################-->
+  <div class="mainbox" id="setAttributeClassBox">
+    <div class="labelmainbox">SET CLASS IN ATTRIBUTE CLASS</div>
+    <div class="descriptionbox">
+      Set class attribute of a div using scriptitem<br>
+      Class attribute is not existing initially<br>
+      <span class="successDescription">Success when</span> class attribute of setAttributeClassId item = setAttributeClass
+    </div>
+    <div class="testbox">
+      <div id="setAttributeClassId">
+        Set setAttributeClass in class attribute
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## REMOVE CLASS FROM ATTRIBUTE CLASS ###################################################-->
+  <div class="mainbox" id="removeAClassBox">
+    <div class="labelmainbox">REMOVE CLASS FROM ATTRIBUTE CLASS</div>
+    <div class="descriptionbox">
+      remove a class from class attribute of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> class someclass of removeAClass item is not present anymore
+    </div>
+    <div class="testbox">
+      <div id="removeAClass" class="whateverbox someclass">
+        Remove someclass from my class list
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## REMOVE ATTRIBUTE CLASS ###################################################-->
+  <div class="mainbox" id="removeAttributeClassBox">
+    <div class="labelmainbox">REMOVE ATTRIBUTE CLASS</div>
+    <div class="descriptionbox">
+      Remove class attribute of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> removeAttributeClass does not have any class attribute anymore
+    </div>
+    <div class="testbox">
+      <div id="removeAttributeClass" class="whateverbox">
+        Remove my class attribute
+      </div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+<!--.removeAttribute("class") >> getAttribute(.class) == null (if class is empty then == '') -->
+
+
+  <!--## CHANGE STYLE ATTRIBUTE ###################################################-->
+  <div class="mainbox" id="changeStyleBox">
+    <div class="labelmainbox">CHANGE STYLE ATTRIBUTE</div>
+    <div class="descriptionbox">
+      Change style backgroundColor of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> backgroundColor attribute of changeStyle item = "rgb(106, 197, 172)"
+    </div>
+    <div class="testbox">
+      <div id="changeStyle"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET INNER HTML SCRIPTITEM ###################################################-->
+  <div class="mainbox" id="getInnerHtmlBox">
+    <div class="labelmainbox">GET ATTRIBUTE INNER HTML SCRIPTITEM</div>
+    <div class="descriptionbox">
+      Get innerHTML of a div using scriptitem<br>
+      <span class="successDescription">Success when</span> innerHTML of getInnerHtml item = &lt;div class="whateverbox">DONE&lt;/div>
+    </div>
+    <div class="testbox">
+      <div id="getInnerHtml"><div class="whateverbox">DONE</div></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET TEXT CONTENT SCRIPTITEM ###################################################-->
+  <div class="mainbox" id="getTextContentBox">
+    <div class="labelmainbox">GET TEXT CONTENT SCRIPTITEM</div>
+    <div class="descriptionbox">
+      Get textContent of a div with scriptitem<br>
+      <span class="successDescription">Success when</span> textContent of getTextContent item = DONE
+    </div>
+    <div class="testbox">
+      <div id="getTextContent" class="whateverbox">DONE</div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## SET TEXT CONTENT SCRIPTITEM ###################################################-->
+  <div class="mainbox" id="setTextContentBox">
+    <div class="labelmainbox">SET TEXT CONTENT SCRIPTITEM</div>
+    <div class="descriptionbox">
+      Set textContent of a div with scriptitem<br>
+      <span class="successDescription">Success when</span> textContent of setTextContent item = DONE
+    </div>
+    <div class="testbox">
+      <div id="setTextContent" class="whateverbox"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## GET VALUE SCRIPTITEM ###################################################-->
+  <div class="mainbox" id="getInnerHtmlBox">
+    <div class="labelmainbox">GET VALUE SCRIPTITEM</div>
+    <div class="descriptionbox">
+      Get Value of an input with scriptitem <br>
+      <span class="successDescription">Success when</span> Value of getValue item = DONE
+    </div>
+    <div class="testbox">
+      <input id="getValue" type="text" value="DONE">
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+
+  <!--## SET VALUE QUERY SELECTOR SCRIPTITEM ###################################################-->
+  <div class="mainbox" id="querySelectorChangeHtml">
+    <div class="labelmainbox">SET HTML QUERY SELECTOR SCRIPTITEM</div>
+    <div class="descriptionbox">
+      Select another div with querySelector or closest and change its innerHTML <br>
+      .querySelector("#replaceMeWithADiv").closest(".testbox").innerHTML = &lt;div id="replacementDiv" class="whateverbox">DONE&lt;/div> <br>
+      <span class="successDescription">Success when</span> the input replaceMeWithADiv has been replaced by a div replacementDiv
+    </div>
+    <div class="testbox">
+      <input id="replaceMeWithADiv" class="inlinebox" type="text" value="DONE">
+      <!---->
+      <!-- <div id="replacementDiv" class="whateverbox inlinebox">DONE</div> -->
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## TRIGGER JS ADDED CHANGE EVENT ##############################################-->
+  <div class="mainbox" id="triggerChangeEventBox">
+    <div class="labelmainbox">TRIGGER JS ADDED CHANGE EVENT</div>
+    <div class="descriptionbox">
+      Trigger change event <br>
+      Change event is added dynamically on page load <br>
+      <span class="successDescription">Success when</span> changeEvent value = resultChangeEvent value (after set+change trigger)
+    </div>
+    <div class="testbox">
+      <input type="text" class="inlinebox" id="changeEvent">
+      <div class="inlinebox whateverbox" id="resultChangeEvent"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## TRIGGER INLINE CHANGE EVENT ##############################################-->
+  <div class="mainbox" id="triggerChangeAttributeEventBox">
+    <div class="labelmainbox">TRIGGER INLINE CHANGE EVENT</div>
+    <div class="descriptionbox">
+      Trigger change event <br>
+      Change event is already added as a change attribute on the targeted element <br>
+      In certain cases, CSP is preventing use of inline code (independentely of who is handling the content of the page / human or bot) <br>
+      With a strict CSP script-src, it should always FAIL even with human interaction <br>
+      <span class="successDescription">Success when</span> callInlineChange value = resultFromChangeAttributeEvent value (after set+change trigger)
+    </div>
+    <div class="testbox">
+      <input type="text" class="inlinebox" id="callInlineChange" onchange="changeValueOnChangeAttribute(event)">
+      <div class="inlinebox whateverbox" id="resultCallInlineChange"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## TRIGGER JS ADDED KEYUP EVENT ##############################################-->
+  <div class="mainbox" id="triggerKeyupEventBox">
+    <div class="labelmainbox">TRIGGER JS ADDED KEYUP EVENT</div>
+    <div class="descriptionbox">
+      Trigger keyup event on Enter Key using scriptitem <br>
+      Keyup event is added dynamically on page load <br>
+      See comment below for keyup dispatch <br>
+      <span class="successDescription">Success when</span> resultKeyupEvent value = DONE
+    </div>
+    <div class="testbox">
+      <input type="text" class="inlinebox" id="keyupEvent" value="DONE">
+      <div class="inlinebox whateverbox" id="resultKeyupEvent"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+  <!--
+  dispatchEvent(new KeyboardEvent('keyup', {
+    code: 'Enter',
+    key: 'Enter',
+    charCode: 13,
+    keyCode: 13,
+    view: window,
+    bubbles: true
+  }));
+
+  dispatchEvent(new KeyboardEvent('keyup', {code: 'Enter',key: 'Enter',charCode: 13,keyCode: 13,view: window,bubbles: true}));
+  -->
+
+
+
+  <!--## INJECT FUNCTION ###############################################-->
+  <div class="mainbox" id="injectNewFunctionBox">
+    <div class="labelmainbox">INJECT FUNCTION</div>
+    <div class="descriptionbox">
+      Inject a custom function in the web Page & Call it <br>
+      Function should change the DOM of the application <br>
+      <span class="successDescription">Success when</span> injectNewFunction value has been modified has expected by the injected function
+
+      var injectedNewFunction = function(){
+        document.getElementById("injectNewFunction").value = "DONE";
+      }
+
+    </div>
+    <div class="testbox">
+      <div class="inlinebox whateverbox" type="text" id="injectNewFunction"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+  <!--## EXECUTE FUNCTION ###############################################-->
+  <div class="mainbox" id="executeExistingFunctionBox">
+    <div class="labelmainbox">EXECUTE EXISTING FUNCTION</div>
+    <div class="descriptionbox">
+      Execute an already existing function (not injected by the bot) <br>
+      <span class="successDescription">Success when</span> executeExistingFunction value = DONE (after calling existingFunctionBeforeLoad())
+    </div>
+    <div class="testbox">
+      <div class="inlinebox whateverbox" type="text" id="executeExistingFunction"></div>
+    </div>
+    <div class="CSPbox">
+    </div>
+    <button class="inlinebox hiddenbox successButton">
+      SUCCESS
+    </button>
+    <button class="inlinebox hiddenbox failButton">
+      FAIL
+    </button>
+    <button class="inlinebox hiddenbox uncertainButton">
+      UNCERTAIN
+    </button>
+  </div>
+
+
+
+<!-- 
+- Set a field - OK
+- modify text of an element textContent of a div - OK
+- Set a dropdown - OK
+- Click a button - OK
+- Set a date field x
+- Scroll inside an element - OK
+- capture the content of an iFrame x
+- Trigger HTML events - OK
+- Get text of elements - OK
+- Wait element - OK
+- Exist element - OK
+- Get an existing attribute - id - class - OK
+- set an attribute - id - class - OK
+- Insert button - using id - OK
+- Insert button - unsing object - OK
+- Trigger Keyboard HTML event Keyup - OK
+- Trigger Keyboard HTML event
+- Insert HTML - OK
+- injectFile x 
+- scripitem get innerHTML - OK
+- scriptitem get textContent - OK
+- scriptitem get value - OK
+- scriptitem set textContent - OK
+- scriptitem change style - OK
+- scriptitem keyboard event - OK
+- scriptitem querySelector set - OK
+- exec remove element
+- exec trigger keyboard event
+- exec querySelector
+- exec addEvent listener change
+- exec clic button
+- scriptItem hidden=true x 
+- 
+- est ce que ça brasse de la bière
+-->
+
+<!-- 
+CSP related link
+https://blog.sucuri.net/2021/10/how-to-set-up-a-content-security-policy-csp-in-3-steps.html
+https://makandracards.com/makandra/503862-using-inline-event-handlers-with-a-strict-content-security-policy-csp
+https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Security-Policy/script-src
+https://web.dev/csp/
+https://blog.sucuri.net/2021/10/how-to-set-up-a-content-security-policy-csp-in-3-steps.html
+
+How to Find Out If a Site Has a Content Security Policy (CSP) Deployed
+https://blog.bluetriangle.com/how-to-find-out-if-a-site-has-a-content-security-policy-csp-deployed
+https://csp-evaluator.withgoogle.com/
+ -->
+
+</body>
+</html>
